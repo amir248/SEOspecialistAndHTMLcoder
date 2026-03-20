@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Потомственный SEO специалист | HTML coder (Professional)</title>
+  <meta name="description" content="Потомственный SEO специалист и профессиональный HTML coder. Продвижение сайтов, разработка и оптимизация.">
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #0f172a;
+      color: #e2e8f0;
+    }
+    header {
+      padding: 40px;
+      text-align: center;
+      background: linear-gradient(135deg, #1e293b, #020617);
+    }
+    h1 {
+      font-size: 36px;
+      margin-bottom: 10px;
+    }
+    p.subtitle {
+      font-size: 18px;
+      color: #94a3b8;
+    }
+    section {
+      padding: 40px;
+      max-width: 900px;
+      margin: auto;
+    }
+    .card {
+      background: #1e293b;
+      padding: 20px;
+      border-radius: 12px;
+      margin-bottom: 20px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    }
+    h2 {
+      color: #38bdf8;
+    }
+    .btn {
+      display: inline-block;
+      padding: 12px 20px;
+      background: #38bdf8;
+      color: #020617;
+      text-decoration: none;
+      border-radius: 8px;
+      margin-top: 10px;
+      font-weight: bold;
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      color: #64748b;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Потомственный SEO специалист</h1>
+  <p class="subtitle">HTML coder (Professional) • Продвижение • Разработка • Оптимизация</p>
+</header>
+
+<section>
+  <div class="card">
+    <h2>Обо мне</h2>
+    <p>Я — потомственный SEO специалист с глубоким пониманием поисковых алгоритмов и профессиональный HTML coder. Создаю быстрые, адаптивные и SEO-оптимизированные сайты.</p>
+  </div>
+
+  <div class="card">
+    <h2>Услуги</h2>
+    <ul>
+      <li>SEO продвижение сайтов</li>
+      <li>Техническая оптимизация</li>
+      <li>Разработка сайтов на HTML </li>
+      <!-- <li>Настройка серверов (Debian, NGINX)</li> -->
+      <li>Ускорение загрузки сайтов</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>Почему я?</h2>
+    <p>✔ Быстрые сайты (Core Web Vitals)
+    <br>✔ Чистый код
+    <br>✔ Опыт в Linux (Шпрехать кАмпуктер)
+    <br>✔ Реальные результаты в SEO</p>
+  </div>
+
+  <div class="card">
+    <h2>Контакты</h2>
+    <p>Email: your@email.com</p>
+    <input type="tel"  id="phoneInput" placeholder="Введите телефон" >
+    <a href="#" id="callBtn" class="btn">Связаться</a>
+  </div>
+</section>
+
+<footer>
+  <p>© <span id="date"></span> Потомственный SEO специалист</p>
+</footer>
+
+</body>
+<script>
+    document.getElementById("date").innerHTML=new Date().getFullYear();
+
+   function savePhone() {
+    const phone = document.getElementById('phoneInput').value.trim();
+
+    // простая проверка
+    const isValid = /^\+?[0-9]{10,15}$/.test(phone);
+    if (!isValid) {
+      alert('Введите корректный номер (10-15 цифр, можно с +)');
+      return;
+    }
+
+    localStorage.setItem('phone', phone);
+    alert('Номер сохранён');
+    updateCallLink();
+  }
+
+  function updateCallLink() {
+    const phone = localStorage.getItem('phone');
+    const btn = document.getElementById('callBtn');
+
+    if (phone) {
+      btn.href = `tel:${phone}`;
+    } else {
+      btn.href = '#';
+    }
+  }
+
+  // при загрузке страницы
+  document.addEventListener('DOMContentLoaded', updateCallLink);
+</script>
+</html>
