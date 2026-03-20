@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Потомственный SEO специалист | HTML coder (Professional)</title>
   <meta name="description" content="Потомственный SEO специалист и профессиональный HTML coder. Продвижение сайтов, разработка и оптимизация.">
+  <link rel="shortcut icon" href="SEO.avif" type="image/x-icon">
   <style>
     body {
       margin: 0;
@@ -69,7 +70,21 @@
     <h2>Обо мне</h2>
     <p>Я — потомственный SEO специалист с глубоким пониманием поисковых алгоритмов и профессиональный HTML coder. Создаю быстрые, адаптивные и SEO-оптимизированные сайты.</p>
   </div>
+<div class="card">
+  <h2>Рост трафика</h2>
+  <p id="counter">0</p>
+</div>
 
+<script>
+let count = 0;
+let target = 12450;
+
+let interval = setInterval(() => {
+  count += Math.floor(target / 100);
+  document.getElementById('counter').innerText = count;
+  if (count >= target) clearInterval(interval);
+}, 20);
+</script>
   <div class="card">
     <h2>Услуги</h2>
     <ul>
@@ -92,7 +107,8 @@
   <div class="card">
     <h2>Контакты</h2>
     <p>Email: your@email.com</p>
-    <input type="tel"  id="phoneInput" placeholder="Введите телефон" >
+    <input type="tel"  id="phoneInput" placeholder="Введите телефон" ><br>
+    <button class="btn" onclick="savePhone()">Сохранить номер</button>
     <a href="#" id="callBtn" class="btn">Связаться</a>
   </div>
 </section>
@@ -105,7 +121,7 @@
 <script>
     document.getElementById("date").innerHTML=new Date().getFullYear();
 
-   function savePhone() {
+    function savePhone() {
     const phone = document.getElementById('phoneInput').value.trim();
 
     // простая проверка
@@ -131,6 +147,15 @@
     }
   }
 
+  // при загрузке страницы
+  document.addEventListener('DOMContentLoaded', () => {
+  updateCallLink();
+  const saved = localStorage.getItem('phone');
+  if (saved) {
+    const input = document.getElementById('phoneInput');
+    if (input) input.value = saved;
+  }
+});
   // при загрузке страницы
   document.addEventListener('DOMContentLoaded', updateCallLink);
 </script>
